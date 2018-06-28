@@ -3,13 +3,17 @@ import './Button.css';
 
 export class Button extends Component {
   handleClick = () => {
-    this.props.clickCallback(this.props.incrementValue)
+      if (this.props.text !== '=') {
+        this.props.clickCallback(this.props.text)
+      } else {
+        this.props.clickCallback();
+      }
   }
 
   render() {
     return (
         <button className="Button" onClick={this.handleClick}>
-        +{this.props.incrementValue}
+            {this.props.text}
         </button>
     );
   }
