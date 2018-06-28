@@ -1,0 +1,11 @@
+.Result {
+    border: 5px solid black;
+    border-radius: 50px;
+    background-color: white;
+    color: #333;
+    width: 150px;
+    padding: 10px;
+    margin: 20px auto;
+    font-weight: bold;
+
+}
