@@ -19,15 +19,15 @@ export class Calc extends Component {
     }
 
     calculateExpression = () => {
-        const operationsHash = this.state.expression.replace(/[0-9]+/g, '#').replace(/[\(|\|\.)]/g, '');
+        const operationsHash = this.state.expression.replace(/[0-9]+/g, '#').replace(/[(||.)]/g, '');
         const operationsArray = operationsHash.split('#').filter(n => n !== '');
-        const numbersArray = this.state.expression.split(/[^0-9\.]/g);
+        const numbersArray = this.state.expression.split(/[^0-9.]/g);
 
-        let result = 0;
+        let result = (numbersArray.length === 1) ? numbersArray[0] : 0;
 
         for (let i=0; i<numbersArray.length-1; i++) {
-            let operand1 = parseInt(numbersArray[i]);
-            const operand2 = parseInt(numbersArray[i+1]);
+            let operand1 = parseInt(numbersArray[i], 10);
+            const operand2 = parseInt(numbersArray[i+1], 10);
 
             if (result) {
                 operand1 = result;
@@ -42,6 +42,8 @@ export class Calc extends Component {
                     result = operand1 / operand2; break;
                 case '*':
                     result = operand1 * operand2; break;
+                default:
+                    result = operand1;
             }
         }
 
