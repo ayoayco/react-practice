@@ -5,12 +5,16 @@ import './Calc.css';
 
 export class Calc extends Component {
     state = {
-        expression: ""
+        expression: "0"
     }
 
     updateResult = (string) => {
         const newState = this.state;
-        newState.expression = this.state.expression + string;
+        if (this.state.expression === '0') {
+            newState.expression = string;
+        } else {
+            newState.expression = this.state.expression + string;
+        }
         this.setState(previousState => newState);
     }
 
@@ -18,18 +22,6 @@ export class Calc extends Component {
         const operationsHash = this.state.expression.replace(/[0-9]+/g, '#').replace(/[\(|\|\.)]/g, '');
         const operationsArray = operationsHash.split('#').filter(n => n !== '');
         const numbersArray = this.state.expression.split(/[^0-9\.]/g);
-        const expressionArray = [];
-        let i = 0;
-
-        numbersArray.forEach(
-            number => {
-                expressionArray.push(number);
-                if (i < operationsArray.length) {
-                    expressionArray.push(operationsArray[i]);
-                    i++;
-                }
-            }
-        );
 
         let result = 0;
 
@@ -54,14 +46,13 @@ export class Calc extends Component {
         }
 
         this.setState(previousState => ({expression: '' + result}));
-
-        console.log(expressionArray);
     }
 
     render () {
         return (
             <div className="Calc">
                 <h1>Calculator</h1>
+                <p>No MDAS rule implementation yet.</p>
                 <Result message={this.state.expression} />
                 <Keypad
                     expression={this.state.expression}
