@@ -12,8 +12,8 @@ class App extends Component {
       <div className="App">
         <header className="App-header">
           <img src={logo} className="App-logo" alt="logo" />
-          <h1 className="App-title">Welcome to React</h1>
-          <p>This will contain apps created by Ayo for learning React.js conepts.</p>
+          <h1 className="App-title">Ayos React Apps</h1>
+          <p>apps created by Ayo for learning React.js concepts</p>
         </header>
         <Calc />
         <Github />
