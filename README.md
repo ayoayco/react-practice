@@ -1,3 +1,7 @@
+Live Demo: [https://ayoayco.github.io/react-practice](https://ayoayco.github.io/react-practice)
+
+---
+
 This project was bootstrapped with [Create React App](https://github.com/facebookincubator/create-react-app).
 
 Below you will find some information on how to perform common tasks.<br>
